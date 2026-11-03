@@ -41,3 +41,21 @@ body {
 h1, h2, h3, p {
     margin: 10px 20px;
 }
+
+
+
+
+
+.assignments {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+    }
+    
