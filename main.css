@@ -132,4 +132,17 @@ main {
         max-width: 800px;
         margin: 20px auto;
     }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+    }
+    table, th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        font-size: 20px;
+        font-family: Arial, sans-serif;
+    }
     
