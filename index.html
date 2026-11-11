@@ -7,6 +7,8 @@
     <link rel="manifest" href="/site.webmanifest">
     <title>ATLS 2300 TEXT</title>
     <link rel="stylesheet" href="main.css">
+    <script src="memory.js" defer></script>
+    <script src="search.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,14 +19,14 @@
                 <li><a href="policies.html">Policies</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <form class="search">
+            <form class="search" id="site-search">
                 <input type="search" name="q" placeholder="Search query">
                 <input type="submit" value="Go!">
             </form>
     </div>
     </header>
     <main>
-        <h1>Welcome to TEXT!</h1>
+        <h1 id="typewriter">Welcome to TEXT!</h1>
 
         <h2>Course Overview</h2>
             <p>Welcome to the ATLS 2300 course website! 
@@ -35,24 +37,59 @@
 
         <h3>Course Timeline</h3>
             <p>Here is a brief overview of the course schedule:</p>
-        <div class="timeline">
-                <p>Week 1: Introduction to TEXT</p>
-                <p>Week 2: The Label</p>
-                <p>Week 3: Typography Pt. 1</p>
-                <p>Week 4: Typography Pt. 2</p>
-                <p>Week 5: Design Principles Pt. 1</p>
-                <p>Week 6: Design Principles Pt. 2</p>
-                <p>Week 7: Semiotics Pt. 1</p>
-                <p>Week 8: Semiotics Pt. 2</p>
-                <p>Week 9: Brands</p>
-                <p>Week 10: Professional Work</p>
-                <p>Week 11: Critique</p>
-                <p>Week 12: Depth</p>
-                <p>Week 13: Resources</p>
-        </div>
+        <ol class="lecture-timeline" aria-label="Course lecture schedule">
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="true"><span class="lecture-week">Week 1</span><span>Introduction to TEXT</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 2</span><span>The Label</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 3</span><span>Typography Pt. 1</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 4</span><span>Typography Pt. 2</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 5</span><span>Design Principles Pt. 1</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 6</span><span>Design Principles Pt. 2</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 7</span><span>Semiotics Pt. 1</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 8</span><span>Semiotics Pt. 2</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 9</span><span>Brands</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 10</span><span>Professional Work</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 11</span><span>Critique</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 12</span><span>Depth</span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 13</span><span>Resources</span></button></li>
+        </ol>
+        <script>
+            const lectureTimeline = document.querySelector(".lecture-timeline");
+            const lectureButtons = [...lectureTimeline.querySelectorAll(".lecture-timeline-select")];
+
+            function selectLecture(button) {
+                lectureButtons.forEach((lectureButton) => {
+                    const selected = lectureButton === button;
+                    lectureButton.setAttribute("aria-pressed", String(selected));
+                    lectureButton.closest(".lecture-timeline-item").classList.toggle("is-selected", selected);
+                });
+
+                const timelineBounds = lectureTimeline.getBoundingClientRect();
+                const buttonBounds = button.getBoundingClientRect();
+                const markerPosition = buttonBounds.top - timelineBounds.top + buttonBounds.height / 2;
+                lectureTimeline.style.setProperty("--lecture-marker-y", `${markerPosition}px`);
+            }
+
+            lectureTimeline.addEventListener("click", (event) => {
+                const button = event.target.closest(".lecture-timeline-select");
+                if (button && lectureTimeline.contains(button)) {
+                    selectLecture(button);
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                const selectedButton = lectureTimeline.querySelector('[aria-pressed="true"]');
+                if (selectedButton) {
+                    selectLecture(selectedButton);
+                }
+            });
+
+            selectLecture(lectureButtons[0]);
+        </script>
         <aside>
             <h4>Note:</h4>
             <p>Make sure to check the assignments and policies pages for detailed information on coursework and expectations.</p>
-    </main>
+        </aside>
+        </main>
+
 </body>
 </html>

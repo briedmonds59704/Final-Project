@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
     <title>TEXT Assignments</title>
     <link rel="stylesheet" href="main.css">
+    <script src="search.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
                 <li><a href="policies.html">Policies</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <form class="search">
+            <form class="search" id="site-search">
                 <input type="search" name="q" placeholder="Search query">
                 <input type="submit" value="Go!">
             </form>
@@ -24,23 +25,28 @@
     </header>
     <main>
         <h1>Coursework</h1>
-        <table>
-            <tr>
-                <th>Assignment</th>
-                <th>Due Date</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Assignment 1</td>
-                <td>2024-09-15</td>
-                <td>Completed</td>
-            </tr>
-            <tr>
-                <td>Assignment 2</td>
-                <td>2024-09-22</td>
-                <td>Pending</td>
-            </tr>
-            <!-- Add more assignments as needed -->
-        </main>
+        <section class="assignment-category" aria-labelledby="major-assignments-heading">
+            <h2 id="major-assignments-heading">Major Assignments</h2>
+            <ol class="assignment-timeline">
+                <li class="assignment-timeline-item">
+                    <time class="assignment-date" datetime="2024-09-15">September 15, 2024</time>
+                    <article class="assignment-card">
+                        <h3>Assignment 1</h3>
+                    </article>
+                </li>
+            </ol>
+        </section>
+        <section class="assignment-category" aria-labelledby="minor-assignments-heading">
+            <h2 id="minor-assignments-heading">Minor Assignments</h2>
+            <ol class="assignment-timeline">
+                <li class="assignment-timeline-item">
+                    <time class="assignment-date" datetime="2024-09-22">September 22, 2024</time>
+                    <article class="assignment-card">
+                        <h3>Assignment 2</h3>
+                    </article>
+                </li>
+            </ol>
+        </section>
+    </main>
 </body>
 </html>

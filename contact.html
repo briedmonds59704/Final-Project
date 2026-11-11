@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
     <title>Contact</title>
     <link rel="stylesheet" href="main.css">
+    <script src="search.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
                 <li><a href="policies.html">Policies</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <form class="search">
+            <form class="search" id="site-search">
                 <input type="search" name="q" placeholder="Search query">
                 <input type="submit" value="Go!">
             </form>
@@ -24,10 +25,10 @@
     </header>
     <main>
         <h1>Contact Information</h1>
-        <h2>Rick Griffth: Professor (Rick.Griffth@colorado.edu)</h2>
+        <h2 class="contact-details">Rick Griffth: Professor (Rick.Griffth@colorado.edu)</h2>
         <p>Please contact your LA through email - not Canvas and please do NOT contact Rick outside of class.</p>
 
-<table>
+<table class="contact-details">
     <tr>
         <th>Recitation Time</th>
         <th>LA</th>
