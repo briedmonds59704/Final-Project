@@ -11,10 +11,12 @@ let searchIndex;
 if (searchForm && searchInput) {
     const results = document.createElement("section");
     results.className = "search-results";
+    results.id = "search-results";
     results.setAttribute("aria-live", "polite");
     results.setAttribute("aria-labelledby", "search-results-heading");
     results.hidden = true;
-    results.innerHTML = '<h2 id="search-results-heading">Search results</h2><p class="search-status"></p><ul></ul>';
+    results.innerHTML = '<div class="search-results-header"><h2 id="search-results-heading">Search results</h2><button class="search-results-close" type="button">Hide results</button></div><p class="search-status"></p><ul></ul>';
+    searchForm.setAttribute("aria-controls", results.id);
 
     const header = document.querySelector("header");
     const main = document.querySelector("main");
@@ -26,6 +28,12 @@ if (searchForm && searchInput) {
 
     const status = results.querySelector(".search-status");
     const resultList = results.querySelector("ul");
+    const hideResultsButton = results.querySelector(".search-results-close");
+
+    hideResultsButton.addEventListener("click", () => {
+        results.hidden = true;
+        searchInput.focus();
+    });
 
     async function loadSearchIndex() {
         const pages = await Promise.all(searchPages.map(async (path) => {

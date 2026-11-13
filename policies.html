@@ -12,6 +12,7 @@
     <header>
         <div class="nav">
             <ul>
+                <li class="nav-brand"><a class="nav-logo" href="index.html"><img src="assets/atlasLogo.png" alt="ATLAS home"></a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="assignments.html">Assignments</a></li>
                 <li><a href="policies.html">Policies</a></li>
@@ -23,11 +24,16 @@
             </form>
     </div>
     </header>
-    <main>
-        <h1>Course Policies</h1>
+    <main class="policies-page">
+        <div class="page-title">
+            <h1>Course Policies</h1>
+        </div>
 
 
-        <h2>Rick's Attendance Policy</h2>
+        <div class="policy-columns">
+        <section class="policy-section" aria-labelledby="rick-policies-heading">
+            <h2 id="rick-policies-heading">Rick's Policies</h2>
+            <h3>Attendance Policy</h3>
             <p>Much like other purchases—you will find yourself
             responsible for the quality of your experience. My
             responsibility is to many students—I expect that if
@@ -39,9 +45,64 @@
             ineligible for an A grade. More than 3 times you
             would be ineligible for a C.</p>
 
-<br>
-<br>
-        <h2>University Policies</h2>
+            <h3>Recitation</h3>
+            <p>At Recitations:
+The LA will be responsible for delivering a
+synopsis of the course. You will receive a handout.
+You will pick up an assignment that you can
+perform during that period. Sign and place the
+assignment in the folder on your way out of the
+room.
+Each recitation assignment is also an attendance
+mechanism.
+If the recitation has a reading and discussion
+assignment. This Happens during the session and
+the text is read out loud with everyone present.
+Each person reads one or two paragraphs.
+Each person writes a 2 sentence synopsis.
+by hand.
+Each recitation has a practice which you can
+participate with as long as you please.
+If it is a quiz the quiz can rerefer to any source. All
+quizzes are to be handed in before you leave.
+The work you make must be handed in before you
+leave the room.
+There are no late assignments for the recitations
+don’t ask for extensions due to absence.
+10 Assignments will be accepted of a possible 15
+assignments during the semester.</p>
+
+<h3>Grading Policy</h3>
+            <section class="grading-policy" aria-label="Course grading breakdown">
+                <dl class="grading-breakdown">
+                    <div class="grading-item">
+                        <dt>Major Assignments</dt>
+                        <dd class="grading-weight">30%</dd>
+                        <dd class="grading-note">All 3 Late Penalty: 10%</dd>
+                    </div>
+                    <div class="grading-item">
+                        <dt>Minor Assignments</dt>
+                        <dd class="grading-weight">50%</dd>
+                        <dd class="grading-note">No late assignments. 10 of 15 available.</dd>
+                    </div>
+                    <div class="grading-item">
+                        <dt>Attendance, Participation, and Extra Credit</dt>
+                        <dd class="grading-weight">20%</dd>
+                    </div>
+                </dl>
+                <p class="grading-extra-credit">Any two extra-credit assignments can substitute for a minor assignment or a single absence.</p>
+                <div class="grading-total">
+                    <span>Total</span>
+                    <strong>100%</strong>
+                </div>
+            </section>
+        </section>
+
+        <div class="university-policy-column">
+        <section class="policy-section university-policy-card" aria-labelledby="university-policies-heading">
+        <h2 id="university-policies-heading">University Policies</h2>
+        <p class="policy-preview">Review university guidance on classroom conduct, accommodations, academic integrity, and student support.</p>
+        <div class="university-policy-content" id="university-policy-content">
 
         <h3>Classroom Behavior</h3>
         <p>Students and faculty are responsible for maintaining an appropriate learning environment in all instructional settings, whether in person, remote, or online. Failure to adhere to such behavioral standards may be subject to discipline. Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with race, color, national origin, sex, pregnancy, age, disability, creed, religion, sexual orientation, gender identity, gender expression, veteran status, marital status, political affiliation, or political philosophy.
@@ -76,6 +137,51 @@ Please know that faculty and graduate instructors must inform OIEC when they are
 <br>
         <h3>Mental Health and Wellness</h3>
             <p>The University of Colorado Boulder is committed to the well-being of all students. If you are struggling with personal stressors, mental health or substance use concerns that are impacting academic or daily life, please contact <a href="https://www.colorado.edu/counseling/">Counseling and Psychiatric Services (CAPS)</a> located in C4C or call (303) 492-2277, 24/7. Free and unlimited telehealth is also available through <a href="https://www.colorado.edu/health/academiclivecare">Academic Live Care</a>. The Academic Live Care site also provides information about additional wellness services on campus that are available to students.</p>
+        </div>
+        </section>
+        <button class="policy-toggle" type="button" aria-controls="university-policy-content" aria-expanded="false">See more</button>
+        </div>
+        </div>
     </main>
+    <script>
+        const rickPolicies = document.querySelector("#rick-policies-heading").closest(".policy-section");
+        const universityPolicies = document.querySelector(".university-policy-card");
+        const policyToggle = document.querySelector(".policy-toggle");
+        let universityPoliciesExpanded = false;
+
+        function updateUniversityPolicies() {
+            if (universityPoliciesExpanded) {
+                universityPolicies.style.maxHeight = "none";
+                universityPolicies.style.overflow = "visible";
+                policyToggle.textContent = "See less";
+                policyToggle.hidden = false;
+                return;
+            }
+
+            universityPolicies.style.maxHeight = `${rickPolicies.getBoundingClientRect().height}px`;
+            universityPolicies.style.overflow = "hidden";
+            policyToggle.textContent = "See more";
+            policyToggle.hidden = universityPolicies.scrollHeight <= universityPolicies.clientHeight + 1;
+        }
+
+        policyToggle.addEventListener("click", () => {
+            universityPoliciesExpanded = !universityPoliciesExpanded;
+            policyToggle.setAttribute("aria-expanded", String(universityPoliciesExpanded));
+            updateUniversityPolicies();
+        });
+
+        universityPolicies.addEventListener("focusin", (event) => {
+            const focusedBounds = event.target.getBoundingClientRect();
+            const cardBounds = universityPolicies.getBoundingClientRect();
+            if (!universityPoliciesExpanded && focusedBounds.bottom > cardBounds.bottom) {
+                universityPoliciesExpanded = true;
+                policyToggle.setAttribute("aria-expanded", "true");
+                updateUniversityPolicies();
+            }
+        });
+
+        window.addEventListener("resize", updateUniversityPolicies);
+        updateUniversityPolicies();
+    </script>
 </body>
 </html>

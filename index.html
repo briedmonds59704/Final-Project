@@ -14,6 +14,7 @@
     <header>
     <div class="nav">
             <ul>
+                <li class="nav-brand"><a class="nav-logo" href="index.html"><img src="assets/atlasLogo.png" alt="ATLAS home"></a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="assignments.html">Assignments</a></li>
                 <li><a href="policies.html">Policies</a></li>
@@ -26,29 +27,32 @@
     </div>
     </header>
     <main>
-        <h1 id="typewriter">Welcome to TEXT!</h1>
+        <div class="page-title">
+            <h1 id="typewriter">Welcome to TEXT!</h1>
+        </div>
 
         <h2>Course Overview</h2>
             <p>Welcome to the ATLS 2300 course website! 
             Typography for both print and digital media, explored with historic context and practical applications. For creative technologists, and 'would be' professional designers
             </p>
 
-        <h3>Course Timeline</h3>
-            <p>Here is a brief overview of the course schedule:</p>
+        <h3 class="timeline-heading">Course Timeline</h3>
+            <p class="timeline-intro">Here is a brief overview of the course schedule:</p>
+        <!-- Replace each ADD DATE placeholder with its lecture date. -->
         <ol class="lecture-timeline" aria-label="Course lecture schedule">
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="true"><span class="lecture-week">Week 1</span><span>Introduction to TEXT</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 2</span><span>The Label</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 3</span><span>Typography Pt. 1</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 4</span><span>Typography Pt. 2</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 5</span><span>Design Principles Pt. 1</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 6</span><span>Design Principles Pt. 2</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 7</span><span>Semiotics Pt. 1</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 8</span><span>Semiotics Pt. 2</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 9</span><span>Brands</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 10</span><span>Professional Work</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 11</span><span>Critique</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 12</span><span>Depth</span></button></li>
-            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false"><span class="lecture-week">Week 13</span><span>Resources</span></button></li>
+            <li class="lecture-timeline-item is-selected"><button class="lecture-timeline-select" type="button" aria-pressed="true" aria-expanded="true"><span class="lecture-week">Week 1</span><span class="lecture-copy"><span class="lecture-title">TEXT</span><span class="lecture-date"> 8/23</span><span class="lecture-description">An introduction to how I see it and who I am, and what I'm currently doing.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 2</span><span class="lecture-copy"><span class="lecture-title">The Label</span><span class="lecture-date"> 8/30</span><span class="lecture-description">Trust and the way words might participate in meaning.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 3</span><span class="lecture-copy"><span class="lecture-title">Typography, Part One</span><span class="lecture-date"> 9/13</span><span class="lecture-description">Some histories and some language.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 4</span><span class="lecture-copy"><span class="lecture-title">Typography, Part Two</span><span class="lecture-date"> 9/20</span><span class="lecture-description">The deeper understanding and vocabulary of type.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 5</span><span class="lecture-copy"><span class="lecture-title">Design Principles</span><span class="lecture-date"> 9/27</span><span class="lecture-description">Movements in design and art history.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 6</span><span class="lecture-copy"><span class="lecture-title">Design Principles, Part Two</span><span class="lecture-date"> 10/4</span><span class="lecture-description">Two-dimensional print, grids, and structure.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 7</span><span class="lecture-copy"><span class="lecture-title">Semiotics</span><span class="lecture-date"> 10/11</span><span class="lecture-description">Representations and the study of signs.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 8</span><span class="lecture-copy"><span class="lecture-title">Semiotics, Part Two</span><span class="lecture-date"> 10/18</span><span class="lecture-description">Signs and signifiers in visual communication.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 9</span><span class="lecture-copy"><span class="lecture-title">Brands</span><span class="lecture-date"> 10/25</span><span class="lecture-description">Brand systems, identity, and visual language.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 10</span><span class="lecture-copy"><span class="lecture-title">Professional Work</span><span class="lecture-date"> 11/1</span><span class="lecture-description">Professional practice and the realities of design work.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 11</span><span class="lecture-copy"><span class="lecture-title">Critique</span><span class="lecture-date"> 11/8</span><span class="lecture-description">Feedback, evaluation, and critical discussion.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 12</span><span class="lecture-copy"><span class="lecture-title">Depth</span><span class="lecture-date"> 11/15</span><span class="lecture-description">Going deeper into the course's major ideas and methods.</span></span></button></li>
+            <li class="lecture-timeline-item"><button class="lecture-timeline-select" type="button" aria-pressed="false" aria-expanded="false"><span class="lecture-week">Week 13</span><span class="lecture-copy"><span class="lecture-title">Resources</span><span class="lecture-date"> 11/29</span><span class="lecture-description">Research, tools, and material support for ongoing learning.</span></span></button></li>
         </ol>
         <script>
             const lectureTimeline = document.querySelector(".lecture-timeline");
@@ -58,6 +62,7 @@
                 lectureButtons.forEach((lectureButton) => {
                     const selected = lectureButton === button;
                     lectureButton.setAttribute("aria-pressed", String(selected));
+                    lectureButton.setAttribute("aria-expanded", String(selected));
                     lectureButton.closest(".lecture-timeline-item").classList.toggle("is-selected", selected);
                 });
 
@@ -83,10 +88,6 @@
 
             selectLecture(lectureButtons[0]);
         </script>
-        <aside>
-            <h4>Note:</h4>
-            <p>Make sure to check the assignments and policies pages for detailed information on coursework and expectations.</p>
-        </aside>
         </main>
 
 </body>
